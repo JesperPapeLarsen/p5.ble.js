@@ -30,13 +30,13 @@ class p5ble {
       // Options = {
       //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
       // }
-      const servicesArray = serviceUuidOrOptions.filters.find(f => f.services);
+      const servicesArray = serviceUuidOrOptions.filters.find((f) => f.services);
       if (servicesArray && servicesArray.services && servicesArray.services[0]) {
         serviceUuid = servicesArray.services[0].toLowerCase();
         options.filters = serviceUuidOrOptions.filters.map((f) => {
           if (f.services) {
             const newF = {};
-            newF.services = f.services.map(s => s.toLowerCase());
+            newF.services = f.services.map((s) => s.toLowerCase());
             return newF;
           }
           return f;
@@ -50,7 +50,7 @@ class p5ble {
 
     if (serviceUuidOrOptions.optionalServices) {
       if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
-        options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
+        options.optionalServices = serviceUuidOrOptions.optionalServices.map((s) => {
           if (s) {
             return s.toLowerCase();
           }
@@ -62,9 +62,9 @@ class p5ble {
     if (options) {
       console.log(' options = ', options);
       if (options.filters && options.filters[1]) {
-        if ( options.filters[1].services ) console.log(' service = ', options.filters[1].services);
+        if (options.filters[1].services) console.log(' service = ', options.filters[1].services);
       }
-      if ( options.optionalServices ) console.log(' Optional Service = ', options.optionalServices);
+      if (options.optionalServices) console.log(' Optional Service = ', options.optionalServices);
     }
 
     return callCallback(navigator.bluetooth.requestDevice(options)
@@ -108,13 +108,13 @@ class p5ble {
       // Options = {
       //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
       // }
-      const servicesArray = serviceUuidOrOptions.filters.find(f => f.services);
+      const servicesArray = serviceUuidOrOptions.filters.find((f) => f.services);
       if (servicesArray && servicesArray.services && servicesArray.services[0]) {
         serviceUuid = servicesArray.services[0].toLowerCase();
         options.filters = serviceUuidOrOptions.filters.map((f) => {
           if (f.services) {
             const newF = {};
-            newF.services = f.services.map(s => s.toLowerCase());
+            newF.services = f.services.map((s) => s.toLowerCase());
             return newF;
           }
           return f;
@@ -128,7 +128,7 @@ class p5ble {
 
     if (serviceUuidOrOptions.optionalServices) {
       if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
-        options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
+        options.optionalServices = serviceUuidOrOptions.optionalServices.map((s) => {
           if (s) {
             return s.toLowerCase();
           }
@@ -143,7 +143,7 @@ class p5ble {
         return service.getCharacteristics();
       })
       .then((characteristics) => {
-        console.log('Existing Characteristics: ',this.characteristics.length);
+        console.log('Existing Characteristics: ', this.characteristics.length);
         this.characteristics = this.characteristics.concat(characteristics);
         console.log('Got Characteristic');
         return characteristics;
@@ -166,16 +166,16 @@ class p5ble {
     }
 
     if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-    const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
+    const validChar = this.characteristics.find((char) => char.uuid === characteristic.uuid);
     if (!validChar) return console.error('The characteristic does not exist.');
 
     return callCallback(characteristic.readValue()
-      .then(value => parseData(value, dataType)), callback);
+      .then((value) => parseData(value, dataType)), callback);
   }
 
   write(characteristic, inputValue) {
     if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-    const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
+    const validChar = this.characteristics.find((char) => char.uuid === characteristic.uuid);
     if (!validChar) return console.error('The characteristic does not exist.');
 
     let bufferToSend;
@@ -189,17 +189,17 @@ class p5ble {
 
   writeRaw(characteristic, inputValue) {
     if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-    const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
+    const validChar = this.characteristics.find((char) => char.uuid === characteristic.uuid);
     if (!validChar) return console.error('The characteristic does not exist.');
 
-    let bufferToSend = inputValue;
+    const bufferToSend = inputValue;
     //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
     return characteristic.writeValueWithResponse(bufferToSend);
   }
 
   async startNotifications(characteristic, handleNotifications, dataType) {
     if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-    const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
+    const validChar = this.characteristics.find((char) => char.uuid === characteristic.uuid);
     if (!validChar) return console.error('The characteristic does not exist.');
 
     await characteristic.startNotifications();
@@ -217,7 +217,7 @@ class p5ble {
 
   async stopNotifications(characteristic) {
     if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-    const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
+    const validChar = this.characteristics.find((char) => char.uuid === characteristic.uuid);
     if (!validChar) return console.error('The characteristic does not exist.');
 
     try {
