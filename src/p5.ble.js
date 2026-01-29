@@ -48,7 +48,24 @@ class p5ble {
       console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
     }
 
+    if (serviceUuidOrOptions.optionalServices) {
+      if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
+        options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
+          if (s) {
+            return s.toLowerCase();
+          }
+        });
+      }
+    }
+
     console.log('Requesting Bluetooth Device...');
+    if (options) {
+      console.log(' options = ', options);
+      if (options.filters && options.filters[1]) {
+        if ( options.filters[1].services ) console.log(' service = ', options.filters[1].services);
+      }
+      if ( options.optionalServices ) console.log(' Optional Service = ', options.optionalServices);
+    }
 
     return callCallback(navigator.bluetooth.requestDevice(options)
       .then((device) => {
@@ -68,6 +85,66 @@ class p5ble {
       })
       .then((characteristics) => {
         this.characteristics = characteristics;
+        console.log('Got Characteristic');
+        return characteristics;
+      })
+      .catch((error) => {
+        console.error(`Error: ${error}`);
+      }), callback);
+  }
+
+  connectService(serviceUuidOrOptions, callback) {
+    let options = {};
+    let serviceUuid;
+
+    if (typeof serviceUuidOrOptions === 'string') {
+      serviceUuid = serviceUuidOrOptions.toLowerCase();
+      options = {
+        filters: [{
+          services: [serviceUuid],
+        }],
+      };
+    } else if (typeof serviceUuidOrOptions === 'object' && serviceUuidOrOptions.filters) {
+      // Options = {
+      //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
+      // }
+      const servicesArray = serviceUuidOrOptions.filters.find(f => f.services);
+      if (servicesArray && servicesArray.services && servicesArray.services[0]) {
+        serviceUuid = servicesArray.services[0].toLowerCase();
+        options.filters = serviceUuidOrOptions.filters.map((f) => {
+          if (f.services) {
+            const newF = {};
+            newF.services = f.services.map(s => s.toLowerCase());
+            return newF;
+          }
+          return f;
+        });
+      } else {
+        console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
+      }
+    } else {
+      console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
+    }
+
+    if (serviceUuidOrOptions.optionalServices) {
+      if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
+        options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
+          if (s) {
+            return s.toLowerCase();
+          }
+        });
+      }
+    }
+
+    return callCallback(_this.server.getPrimaryService(serviceUuid)
+      .then((service) => {
+        this.service2 = service;
+        console.log('Getting Characteristics...');
+        return service.getCharacteristics();
+      })
+      .then((characteristics) => {
+        console.log('Existing Characteristics: ',this.characteristics.length);
+        this.characteristics = this.characteristics.concat(characteristics);
         console.log('Got Characteristic');
         return characteristics;
       })
@@ -106,8 +183,18 @@ class p5ble {
       const encoder = new TextEncoder('utf-8');
       bufferToSend = encoder.encode(inputValue);
     } else bufferToSend = Uint8Array.of(inputValue);
-    console.log(`Writing ${inputValue} to Characteristic...`);
-    return characteristic.writeValue(bufferToSend);
+    //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
+    return characteristic.writeValueWithResponse(bufferToSend);
+  }
+
+  writeRaw(characteristic, inputValue) {
+    if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
+    const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
+    if (!validChar) return console.error('The characteristic does not exist.');
+
+    let bufferToSend = inputValue;
+    //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
+    return characteristic.writeValueWithResponse(bufferToSend);
   }
 
   async startNotifications(characteristic, handleNotifications, dataType) {
