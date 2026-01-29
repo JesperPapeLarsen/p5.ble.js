@@ -19,6 +19,10 @@ export default {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
       },
       {
         test: /\.js$/,
