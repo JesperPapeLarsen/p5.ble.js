@@ -42,19 +42,15 @@ class p5ble {
           return f;
         });
       } else {
-        console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
+        console.error('Please pass an option object in this format: { filters: [{ services: [serviceUuid] }] }');
       }
     } else {
-      console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
+      console.error('Please pass a serviceUuid string or an options object.');
     }
 
     if (serviceUuidOrOptions.optionalServices) {
-      if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
-        options.optionalServices = serviceUuidOrOptions.optionalServices.map((s) => {
-          if (s) {
-            return s.toLowerCase();
-          }
-        });
+      if (serviceUuidOrOptions.optionalServices[0]) {
+        options.optionalServices = serviceUuidOrOptions.optionalServices.map((s) => (s ? s.toLowerCase() : s));
       }
     }
 
@@ -114,31 +110,27 @@ class p5ble {
         options.filters = serviceUuidOrOptions.filters.map((f) => {
           if (f.services) {
             const newF = {};
-            newF.services = f.services.map((s) => s.toLowerCase());
+            newF.services = f.services.map((s) => (s ? s.toLowerCase() : s));
             return newF;
           }
           return f;
         });
       } else {
-        console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
+        console.error('Please pass an option object in this format: { filters: [{ services: [serviceUuid] }] }');
       }
     } else {
-      console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
+      console.error('Please pass a serviceUuid string or an options object.');
     }
 
     if (serviceUuidOrOptions.optionalServices) {
       if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
-        options.optionalServices = serviceUuidOrOptions.optionalServices.map((s) => {
-          if (s) {
-            return s.toLowerCase();
-          }
-        });
+        options.optionalServices = serviceUuidOrOptions.optionalServices.map((s) => (s ? s.toLowerCase() : s));
       }
     }
 
-    return callCallback(_this.server.getPrimaryService(serviceUuid)
+    return callCallback(this.server.getPrimaryService(serviceUuid)
       .then((service) => {
-        this.service2 = service;
+        this.service_opt = service;
         console.log('Getting Characteristics...');
         return service.getCharacteristics();
       })
@@ -183,7 +175,7 @@ class p5ble {
       const encoder = new TextEncoder('utf-8');
       bufferToSend = encoder.encode(inputValue);
     } else bufferToSend = Uint8Array.of(inputValue);
-    //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
+    // console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
     return characteristic.writeValueWithResponse(bufferToSend);
   }
 
@@ -193,7 +185,7 @@ class p5ble {
     if (!validChar) return console.error('The characteristic does not exist.');
 
     const bufferToSend = inputValue;
-    //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
+    // console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
     return characteristic.writeValueWithResponse(bufferToSend);
   }
 
@@ -257,4 +249,4 @@ class p5ble {
   }
 }
 
-module.exports = p5ble;
+export default p5ble;

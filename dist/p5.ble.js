@@ -9900,383 +9900,6 @@ module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/cor
 
 /***/ },
 
-/***/ "./node_modules/idempotent-babel-polyfill/lib/index.js"
-/*!*************************************************************!*\
-  !*** ./node_modules/idempotent-babel-polyfill/lib/index.js ***!
-  \*************************************************************/
-(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.idempotentBabelPolyfill = idempotentBabelPolyfill;
-exports["default"] = void 0;
-
-function idempotentBabelPolyfill() {
-  if (!__webpack_require__.g._babelPolyfill && ( // eslint-disable-next-line no-undef
-  typeof window === 'undefined' || !window._babelPolyfill)) {
-    return __webpack_require__(/*! @babel/polyfill */ "./node_modules/@babel/polyfill/lib/index.js");
-  }
-
-  return null;
-}
-
-var _default = idempotentBabelPolyfill();
-
-exports["default"] = _default;
-
-/***/ },
-
-/***/ "./src/p5.ble.js"
-/*!***********************!*\
-  !*** ./src/p5.ble.js ***!
-  \***********************/
-(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_callcallback__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/callcallback */ "./src/utils/callcallback.js");
-/* harmony import */ var _utils_parseData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/parseData */ "./src/utils/parseData.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-// Copyright (c) 2018 p5ble
-//
-// This software is released under the MIT License.
-// https://opensource.org/licenses/MIT
-
-
-
-var p5ble = /*#__PURE__*/function () {
-  function p5ble() {
-    _classCallCheck(this, p5ble);
-    this.device = null;
-    this.server = null;
-    this.service = null;
-    this.characteristics = [];
-    this.handleNotifications = null;
-  }
-  return _createClass(p5ble, [{
-    key: "connect",
-    value: function connect(serviceUuidOrOptions, callback) {
-      var _this2 = this;
-      var options = {};
-      var serviceUuid;
-      if (typeof serviceUuidOrOptions === 'string') {
-        serviceUuid = serviceUuidOrOptions.toLowerCase();
-        options = {
-          filters: [{
-            services: [serviceUuid]
-          }]
-        };
-      } else if (_typeof(serviceUuidOrOptions) === 'object' && serviceUuidOrOptions.filters) {
-        // Options = {
-        //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
-        // }
-        var servicesArray = serviceUuidOrOptions.filters.find(function (f) {
-          return f.services;
-        });
-        if (servicesArray && servicesArray.services && servicesArray.services[0]) {
-          serviceUuid = servicesArray.services[0].toLowerCase();
-          options.filters = serviceUuidOrOptions.filters.map(function (f) {
-            if (f.services) {
-              var newF = {};
-              newF.services = f.services.map(function (s) {
-                return s.toLowerCase();
-              });
-              return newF;
-            }
-            return f;
-          });
-        } else {
-          console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
-        }
-      } else {
-        console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
-      }
-      if (serviceUuidOrOptions.optionalServices) {
-        if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
-          options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
-            if (s) {
-              return s.toLowerCase();
-            }
-          });
-        }
-      }
-      console.log('Requesting Bluetooth Device...');
-      if (options) {
-        console.log(' options = ', options);
-        if (options.filters && options.filters[1]) {
-          if (options.filters[1].services) console.log(' service = ', options.filters[1].services);
-        }
-        if (options.optionalServices) console.log(' Optional Service = ', options.optionalServices);
-      }
-      return (0,_utils_callcallback__WEBPACK_IMPORTED_MODULE_0__["default"])(navigator.bluetooth.requestDevice(options).then(function (device) {
-        _this2.device = device;
-        console.log("Got device ".concat(device.name));
-        return device.gatt.connect();
-      }).then(function (server) {
-        _this2.server = server;
-        console.log('Getting Service...');
-        return server.getPrimaryService(serviceUuid);
-      }).then(function (service) {
-        _this2.service = service;
-        console.log('Getting Characteristics...');
-        return service.getCharacteristics();
-      }).then(function (characteristics) {
-        _this2.characteristics = characteristics;
-        console.log('Got Characteristic');
-        return characteristics;
-      })["catch"](function (error) {
-        console.error("Error: ".concat(error));
-      }), callback);
-    }
-  }, {
-    key: "connectService",
-    value: function connectService(serviceUuidOrOptions, callback) {
-      var _this3 = this;
-      var options = {};
-      var serviceUuid;
-      if (typeof serviceUuidOrOptions === 'string') {
-        serviceUuid = serviceUuidOrOptions.toLowerCase();
-        options = {
-          filters: [{
-            services: [serviceUuid]
-          }]
-        };
-      } else if (_typeof(serviceUuidOrOptions) === 'object' && serviceUuidOrOptions.filters) {
-        // Options = {
-        //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
-        // }
-        var servicesArray = serviceUuidOrOptions.filters.find(function (f) {
-          return f.services;
-        });
-        if (servicesArray && servicesArray.services && servicesArray.services[0]) {
-          serviceUuid = servicesArray.services[0].toLowerCase();
-          options.filters = serviceUuidOrOptions.filters.map(function (f) {
-            if (f.services) {
-              var newF = {};
-              newF.services = f.services.map(function (s) {
-                return s.toLowerCase();
-              });
-              return newF;
-            }
-            return f;
-          });
-        } else {
-          console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
-        }
-      } else {
-        console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
-      }
-      if (serviceUuidOrOptions.optionalServices) {
-        if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
-          options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
-            if (s) {
-              return s.toLowerCase();
-            }
-          });
-        }
-      }
-      return (0,_utils_callcallback__WEBPACK_IMPORTED_MODULE_0__["default"])(_this.server.getPrimaryService(serviceUuid).then(function (service) {
-        _this3.service2 = service;
-        console.log('Getting Characteristics...');
-        return service.getCharacteristics();
-      }).then(function (characteristics) {
-        console.log('Existing Characteristics: ', _this3.characteristics.length);
-        _this3.characteristics = _this3.characteristics.concat(characteristics);
-        console.log('Got Characteristic');
-        return characteristics;
-      })["catch"](function (error) {
-        console.error("Error: ".concat(error));
-      }), callback);
-    }
-  }, {
-    key: "read",
-    value: function () {
-      var _read = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(characteristic, dataTypeOrcallback, cb) {
-        var callback, dataType, validChar;
-        return _regenerator().w(function (_context) {
-          while (1) switch (_context.n) {
-            case 0:
-              if (typeof dataTypeOrcallback === 'function') {
-                callback = dataTypeOrcallback;
-              } else if (typeof dataTypeOrcallback === 'string') {
-                dataType = dataTypeOrcallback;
-              }
-              if (typeof cb === 'function') {
-                callback = cb;
-              }
-              if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-              validChar = this.characteristics.find(function (_char) {
-                return _char.uuid === characteristic.uuid;
-              });
-              if (validChar) {
-                _context.n = 1;
-                break;
-              }
-              return _context.a(2, console.error('The characteristic does not exist.'));
-            case 1:
-              return _context.a(2, (0,_utils_callcallback__WEBPACK_IMPORTED_MODULE_0__["default"])(characteristic.readValue().then(function (value) {
-                return (0,_utils_parseData__WEBPACK_IMPORTED_MODULE_1__["default"])(value, dataType);
-              }), callback));
-          }
-        }, _callee, this);
-      }));
-      function read(_x, _x2, _x3) {
-        return _read.apply(this, arguments);
-      }
-      return read;
-    }()
-  }, {
-    key: "write",
-    value: function write(characteristic, inputValue) {
-      if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-      var validChar = this.characteristics.find(function (_char2) {
-        return _char2.uuid === characteristic.uuid;
-      });
-      if (!validChar) return console.error('The characteristic does not exist.');
-      var bufferToSend;
-      if (typeof inputValue === 'string') {
-        var encoder = new TextEncoder('utf-8');
-        bufferToSend = encoder.encode(inputValue);
-      } else bufferToSend = Uint8Array.of(inputValue);
-      //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
-      return characteristic.writeValueWithResponse(bufferToSend);
-    }
-  }, {
-    key: "writeRaw",
-    value: function writeRaw(characteristic, inputValue) {
-      if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-      var validChar = this.characteristics.find(function (_char3) {
-        return _char3.uuid === characteristic.uuid;
-      });
-      if (!validChar) return console.error('The characteristic does not exist.');
-      var bufferToSend = inputValue;
-      //console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
-      return characteristic.writeValueWithResponse(bufferToSend);
-    }
-  }, {
-    key: "startNotifications",
-    value: function () {
-      var _startNotifications = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(characteristic, handleNotifications, dataType) {
-        var validChar;
-        return _regenerator().w(function (_context2) {
-          while (1) switch (_context2.n) {
-            case 0:
-              if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-              validChar = this.characteristics.find(function (_char4) {
-                return _char4.uuid === characteristic.uuid;
-              });
-              if (validChar) {
-                _context2.n = 1;
-                break;
-              }
-              return _context2.a(2, console.error('The characteristic does not exist.'));
-            case 1:
-              _context2.n = 2;
-              return characteristic.startNotifications();
-            case 2:
-              console.log('> Notifications started');
-              this.handleNotifications = function (event) {
-                var value = event.target.value;
-                var parsedData = (0,_utils_parseData__WEBPACK_IMPORTED_MODULE_1__["default"])(value, dataType);
-                handleNotifications(parsedData);
-              };
-              return _context2.a(2, characteristic.addEventListener('characteristicvaluechanged', this.handleNotifications));
-          }
-        }, _callee2, this);
-      }));
-      function startNotifications(_x4, _x5, _x6) {
-        return _startNotifications.apply(this, arguments);
-      }
-      return startNotifications;
-    }()
-  }, {
-    key: "stopNotifications",
-    value: function () {
-      var _stopNotifications = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(characteristic) {
-        var validChar, _t;
-        return _regenerator().w(function (_context3) {
-          while (1) switch (_context3.p = _context3.n) {
-            case 0:
-              if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
-              validChar = this.characteristics.find(function (_char5) {
-                return _char5.uuid === characteristic.uuid;
-              });
-              if (validChar) {
-                _context3.n = 1;
-                break;
-              }
-              return _context3.a(2, console.error('The characteristic does not exist.'));
-            case 1:
-              _context3.p = 1;
-              _context3.n = 2;
-              return characteristic.stopNotifications();
-            case 2:
-              if (!this.handleNotifications) {
-                _context3.n = 3;
-                break;
-              }
-              console.log('> Notifications stopped');
-              return _context3.a(2, characteristic.removeEventListener('characteristicvaluechanged', this.handleNotifications));
-            case 3:
-              return _context3.a(2, console.log('> Notifications stopped'));
-            case 4:
-              _context3.p = 4;
-              _t = _context3.v;
-              return _context3.a(2, console.error("Error: ".concat(_t)));
-          }
-        }, _callee3, this, [[1, 4]]);
-      }));
-      function stopNotifications(_x7) {
-        return _stopNotifications.apply(this, arguments);
-      }
-      return stopNotifications;
-    }()
-  }, {
-    key: "disconnect",
-    value: function disconnect() {
-      if (!this.device) return;
-      console.log('Disconnecting from Bluetooth Device...');
-      if (this.device.gatt.connected) {
-        this.device.gatt.disconnect();
-      } else {
-        console.log('> Bluetooth Device is already disconnected');
-      }
-    }
-  }, {
-    key: "onDisconnected",
-    value: function onDisconnected(handleDisconnected) {
-      if (!this.device) return console.error('There is no device connected.');
-      return this.device.addEventListener('gattserverdisconnected', handleDisconnected);
-    }
-  }, {
-    key: "isConnected",
-    value: function isConnected() {
-      if (!this.device) return false;
-      if (this.device.gatt.connected) {
-        return true;
-      }
-      return false;
-    }
-  }]);
-}();
-module.exports = p5ble;
-
-/***/ },
-
 /***/ "./src/utils/callcallback.js"
 /*!***********************************!*\
   !*** ./src/utils/callcallback.js ***!
@@ -10397,16 +10020,13 @@ function parseData(data, t, encoding) {
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -10437,21 +10057,6 @@ function parseData(data, t, encoding) {
 /******/ 		})();
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/harmony module decorator */
-/******/ 	(() => {
-/******/ 		__webpack_require__.hmd = (module) => {
-/******/ 			module = Object.create(module);
-/******/ 			if (!module.children) module.children = [];
-/******/ 			Object.defineProperty(module, 'exports', {
-/******/ 				enumerable: true,
-/******/ 				set: () => {
-/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
-/******/ 				}
-/******/ 			});
-/******/ 			return module;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -10469,13 +10074,379 @@ function parseData(data, t, encoding) {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./node_modules/idempotent-babel-polyfill/lib/index.js");
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/p5.ble.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+(() => {
+"use strict";
+var exports = {};
+/*!*************************************************************!*\
+  !*** ./node_modules/idempotent-babel-polyfill/lib/index.js ***!
+  \*************************************************************/
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.idempotentBabelPolyfill = idempotentBabelPolyfill;
+exports["default"] = void 0;
+
+function idempotentBabelPolyfill() {
+  if (!__webpack_require__.g._babelPolyfill && ( // eslint-disable-next-line no-undef
+  typeof window === 'undefined' || !window._babelPolyfill)) {
+    return __webpack_require__(/*! @babel/polyfill */ "./node_modules/@babel/polyfill/lib/index.js");
+  }
+
+  return null;
+}
+
+var _default = idempotentBabelPolyfill();
+
+exports["default"] = _default;
+})();
+
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+(() => {
+"use strict";
+/*!***********************!*\
+  !*** ./src/p5.ble.js ***!
+  \***********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_callcallback__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/callcallback */ "./src/utils/callcallback.js");
+/* harmony import */ var _utils_parseData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/parseData */ "./src/utils/parseData.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+// Copyright (c) 2018 p5ble
+//
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+
+
+var p5ble = /*#__PURE__*/function () {
+  function p5ble() {
+    _classCallCheck(this, p5ble);
+    this.device = null;
+    this.server = null;
+    this.service = null;
+    this.characteristics = [];
+    this.handleNotifications = null;
+  }
+  return _createClass(p5ble, [{
+    key: "connect",
+    value: function connect(serviceUuidOrOptions, callback) {
+      var _this = this;
+      var options = {};
+      var serviceUuid;
+      if (typeof serviceUuidOrOptions === 'string') {
+        serviceUuid = serviceUuidOrOptions.toLowerCase();
+        options = {
+          filters: [{
+            services: [serviceUuid]
+          }]
+        };
+      } else if (_typeof(serviceUuidOrOptions) === 'object' && serviceUuidOrOptions.filters) {
+        // Options = {
+        //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
+        // }
+        var servicesArray = serviceUuidOrOptions.filters.find(function (f) {
+          return f.services;
+        });
+        if (servicesArray && servicesArray.services && servicesArray.services[0]) {
+          serviceUuid = servicesArray.services[0].toLowerCase();
+          options.filters = serviceUuidOrOptions.filters.map(function (f) {
+            if (f.services) {
+              var newF = {};
+              newF.services = f.services.map(function (s) {
+                return s.toLowerCase();
+              });
+              return newF;
+            }
+            return f;
+          });
+        } else {
+          console.error('Please pass an option object in this format: { filters: [{ services: [serviceUuid] }] }');
+        }
+      } else {
+        console.error('Please pass a serviceUuid string or an options object.');
+      }
+      if (serviceUuidOrOptions.optionalServices) {
+        if (serviceUuidOrOptions.optionalServices[0]) {
+          options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
+            return s ? s.toLowerCase() : s;
+          });
+        }
+      }
+      console.log('Requesting Bluetooth Device...');
+      if (options) {
+        console.log(' options = ', options);
+        if (options.filters && options.filters[1]) {
+          if (options.filters[1].services) console.log(' service = ', options.filters[1].services);
+        }
+        if (options.optionalServices) console.log(' Optional Service = ', options.optionalServices);
+      }
+      return (0,_utils_callcallback__WEBPACK_IMPORTED_MODULE_0__["default"])(navigator.bluetooth.requestDevice(options).then(function (device) {
+        _this.device = device;
+        console.log("Got device ".concat(device.name));
+        return device.gatt.connect();
+      }).then(function (server) {
+        _this.server = server;
+        console.log('Getting Service...');
+        return server.getPrimaryService(serviceUuid);
+      }).then(function (service) {
+        _this.service = service;
+        console.log('Getting Characteristics...');
+        return service.getCharacteristics();
+      }).then(function (characteristics) {
+        _this.characteristics = characteristics;
+        console.log('Got Characteristic');
+        return characteristics;
+      })["catch"](function (error) {
+        console.error("Error: ".concat(error));
+      }), callback);
+    }
+  }, {
+    key: "connectService",
+    value: function connectService(serviceUuidOrOptions, callback) {
+      var _this2 = this;
+      var options = {};
+      var serviceUuid;
+      if (typeof serviceUuidOrOptions === 'string') {
+        serviceUuid = serviceUuidOrOptions.toLowerCase();
+        options = {
+          filters: [{
+            services: [serviceUuid]
+          }]
+        };
+      } else if (_typeof(serviceUuidOrOptions) === 'object' && serviceUuidOrOptions.filters) {
+        // Options = {
+        //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
+        // }
+        var servicesArray = serviceUuidOrOptions.filters.find(function (f) {
+          return f.services;
+        });
+        if (servicesArray && servicesArray.services && servicesArray.services[0]) {
+          serviceUuid = servicesArray.services[0].toLowerCase();
+          options.filters = serviceUuidOrOptions.filters.map(function (f) {
+            if (f.services) {
+              var newF = {};
+              newF.services = f.services.map(function (s) {
+                return s ? s.toLowerCase() : s;
+              });
+              return newF;
+            }
+            return f;
+          });
+        } else {
+          console.error('Please pass an option object in this format: { filters: [{ services: [serviceUuid] }] }');
+        }
+      } else {
+        console.error('Please pass a serviceUuid string or an options object.');
+      }
+      if (serviceUuidOrOptions.optionalServices) {
+        if (serviceUuidOrOptions.optionalServices && serviceUuidOrOptions.optionalServices[0]) {
+          options.optionalServices = serviceUuidOrOptions.optionalServices.map(function (s) {
+            return s ? s.toLowerCase() : s;
+          });
+        }
+      }
+      return (0,_utils_callcallback__WEBPACK_IMPORTED_MODULE_0__["default"])(this.server.getPrimaryService(serviceUuid).then(function (service) {
+        _this2.service_opt = service;
+        console.log('Getting Characteristics...');
+        return service.getCharacteristics();
+      }).then(function (characteristics) {
+        console.log('Existing Characteristics: ', _this2.characteristics.length);
+        _this2.characteristics = _this2.characteristics.concat(characteristics);
+        console.log('Got Characteristic');
+        return characteristics;
+      })["catch"](function (error) {
+        console.error("Error: ".concat(error));
+      }), callback);
+    }
+  }, {
+    key: "read",
+    value: function () {
+      var _read = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(characteristic, dataTypeOrcallback, cb) {
+        var callback, dataType, validChar;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.n) {
+            case 0:
+              if (typeof dataTypeOrcallback === 'function') {
+                callback = dataTypeOrcallback;
+              } else if (typeof dataTypeOrcallback === 'string') {
+                dataType = dataTypeOrcallback;
+              }
+              if (typeof cb === 'function') {
+                callback = cb;
+              }
+              if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
+              validChar = this.characteristics.find(function (_char) {
+                return _char.uuid === characteristic.uuid;
+              });
+              if (validChar) {
+                _context.n = 1;
+                break;
+              }
+              return _context.a(2, console.error('The characteristic does not exist.'));
+            case 1:
+              return _context.a(2, (0,_utils_callcallback__WEBPACK_IMPORTED_MODULE_0__["default"])(characteristic.readValue().then(function (value) {
+                return (0,_utils_parseData__WEBPACK_IMPORTED_MODULE_1__["default"])(value, dataType);
+              }), callback));
+          }
+        }, _callee, this);
+      }));
+      function read(_x, _x2, _x3) {
+        return _read.apply(this, arguments);
+      }
+      return read;
+    }()
+  }, {
+    key: "write",
+    value: function write(characteristic, inputValue) {
+      if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
+      var validChar = this.characteristics.find(function (_char2) {
+        return _char2.uuid === characteristic.uuid;
+      });
+      if (!validChar) return console.error('The characteristic does not exist.');
+      var bufferToSend;
+      if (typeof inputValue === 'string') {
+        var encoder = new TextEncoder('utf-8');
+        bufferToSend = encoder.encode(inputValue);
+      } else bufferToSend = Uint8Array.of(inputValue);
+      // console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
+      return characteristic.writeValueWithResponse(bufferToSend);
+    }
+  }, {
+    key: "writeRaw",
+    value: function writeRaw(characteristic, inputValue) {
+      if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
+      var validChar = this.characteristics.find(function (_char3) {
+        return _char3.uuid === characteristic.uuid;
+      });
+      if (!validChar) return console.error('The characteristic does not exist.');
+      var bufferToSend = inputValue;
+      // console.log('Writing ' + inputValue + ' to Characteristic... ( ' + bufferToSend + ' )');
+      return characteristic.writeValueWithResponse(bufferToSend);
+    }
+  }, {
+    key: "startNotifications",
+    value: function () {
+      var _startNotifications = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(characteristic, handleNotifications, dataType) {
+        var validChar;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.n) {
+            case 0:
+              if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
+              validChar = this.characteristics.find(function (_char4) {
+                return _char4.uuid === characteristic.uuid;
+              });
+              if (validChar) {
+                _context2.n = 1;
+                break;
+              }
+              return _context2.a(2, console.error('The characteristic does not exist.'));
+            case 1:
+              _context2.n = 2;
+              return characteristic.startNotifications();
+            case 2:
+              console.log('> Notifications started');
+              this.handleNotifications = function (event) {
+                var value = event.target.value;
+                var parsedData = (0,_utils_parseData__WEBPACK_IMPORTED_MODULE_1__["default"])(value, dataType);
+                handleNotifications(parsedData);
+              };
+              return _context2.a(2, characteristic.addEventListener('characteristicvaluechanged', this.handleNotifications));
+          }
+        }, _callee2, this);
+      }));
+      function startNotifications(_x4, _x5, _x6) {
+        return _startNotifications.apply(this, arguments);
+      }
+      return startNotifications;
+    }()
+  }, {
+    key: "stopNotifications",
+    value: function () {
+      var _stopNotifications = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(characteristic) {
+        var validChar, _t;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
+            case 0:
+              if (!characteristic || !characteristic.uuid) console.error('The characteristic does not exist.');
+              validChar = this.characteristics.find(function (_char5) {
+                return _char5.uuid === characteristic.uuid;
+              });
+              if (validChar) {
+                _context3.n = 1;
+                break;
+              }
+              return _context3.a(2, console.error('The characteristic does not exist.'));
+            case 1:
+              _context3.p = 1;
+              _context3.n = 2;
+              return characteristic.stopNotifications();
+            case 2:
+              if (!this.handleNotifications) {
+                _context3.n = 3;
+                break;
+              }
+              console.log('> Notifications stopped');
+              return _context3.a(2, characteristic.removeEventListener('characteristicvaluechanged', this.handleNotifications));
+            case 3:
+              return _context3.a(2, console.log('> Notifications stopped'));
+            case 4:
+              _context3.p = 4;
+              _t = _context3.v;
+              return _context3.a(2, console.error("Error: ".concat(_t)));
+          }
+        }, _callee3, this, [[1, 4]]);
+      }));
+      function stopNotifications(_x7) {
+        return _stopNotifications.apply(this, arguments);
+      }
+      return stopNotifications;
+    }()
+  }, {
+    key: "disconnect",
+    value: function disconnect() {
+      if (!this.device) return;
+      console.log('Disconnecting from Bluetooth Device...');
+      if (this.device.gatt.connected) {
+        this.device.gatt.disconnect();
+      } else {
+        console.log('> Bluetooth Device is already disconnected');
+      }
+    }
+  }, {
+    key: "onDisconnected",
+    value: function onDisconnected(handleDisconnected) {
+      if (!this.device) return console.error('There is no device connected.');
+      return this.device.addEventListener('gattserverdisconnected', handleDisconnected);
+    }
+  }, {
+    key: "isConnected",
+    value: function isConnected() {
+      if (!this.device) return false;
+      if (this.device.gatt.connected) {
+        return true;
+      }
+      return false;
+    }
+  }]);
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (p5ble);
+})();
+
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
